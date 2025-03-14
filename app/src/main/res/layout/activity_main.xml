@@ -9,6 +9,66 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#14DEFF"
+        >
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:layout_gravity="center"
+        android:textSize="30sp"
+        android:text="Jaka kawusia wariacie?"
+        android:textColor="@color/black"
+        />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:id="@+id/kawa_radiogroup"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_margin="10dp">
+
+            <RadioButton
+                android:id="@+id/cappuccino_radiobutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cappuccino"
+                />
+
+            <RadioButton
+                android:id="@+id/espresso_radiobutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Espresso"
+                />
+
+            <RadioButton
+                android:id="@+id/latte_radiobutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Latte"
+                />
+
+        </RadioGroup>
+
+        <ImageView
+            android:id="@+id/kawa_imageview"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="15dp"
+            android:contentDescription="cappuccino"
+            android:src="@drawable/capuccino"
+            />
+
+    </LinearLayout>
 </LinearLayout>
