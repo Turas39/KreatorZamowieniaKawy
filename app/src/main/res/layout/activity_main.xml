@@ -18,9 +18,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_margin="20dp"
         android:layout_gravity="center"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:text="Jaka kawusia wariacie?"
         android:textColor="@color/black"
         />
@@ -28,7 +28,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <RadioGroup
@@ -71,4 +71,48 @@
             />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#14DEFF">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_gravity="center"
+            android:textSize="25sp"
+            android:text="Jakie dodatki wariacie?"
+            android:textColor="@color/black"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <CheckBox
+            android:id="@+id/mleko_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mleko"
+            android:layout_marginRight="150dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+
+            />
+
+        <CheckBox
+            android:id="@+id/cukier_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cukier"
+            android:layout_marginTop="10dp"
+            />
+
+    </LinearLayout>
+
 </LinearLayout>
