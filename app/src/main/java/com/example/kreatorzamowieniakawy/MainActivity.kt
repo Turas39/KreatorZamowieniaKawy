@@ -1,6 +1,9 @@
 package com.example.kreatorzamowieniakawy
 
 import android.os.Bundle
+import android.widget.ImageView
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
@@ -37,6 +40,26 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+        val kawaImageView = findViewById<ImageView>(R.id.kawa_imageview)
+        val kawaRadioGroup = findViewById<RadioGroup>(R.id.kawa_radiogroup)
+        val cappucinoRadioButton = findViewById<RadioButton>(R.id.cappuccino_radiobutton)
+
+        cappucinoRadioButton.isChecked = true
+
+        val images = listOf(
+            R.drawable.latte,
+            R.drawable.espresso,
+            R.drawable.capuccino
+        )
+
+        kawaRadioGroup.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                R.id.latte_radiobutton -> kawaImageView.setImageResource(R.drawable.latte)
+                R.id.espresso_radiobutton -> kawaImageView.setImageResource(R.drawable.espresso)
+                R.id.cappuccino_radiobutton -> kawaImageView.setImageResource(R.drawable.capuccino)
+            }
+        }
 
     }
 }
