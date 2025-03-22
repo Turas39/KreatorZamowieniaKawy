@@ -1,6 +1,9 @@
 package com.example.kreatorzamowieniakawy
 
+import android.graphics.Color
 import android.os.Bundle
+import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -24,11 +27,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         val seekBar = findViewById<SeekBar>(R.id.ilosc_seekbar)
-        val textview = findViewById<TextView>(R.id.ilosc_textview)
+        val textViewIlosc = findViewById<TextView>(R.id.ilosc_textview)
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
 
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                textview.text = "$progress"
+                textViewIlosc.text = "$progress"
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -44,6 +47,8 @@ class MainActivity : AppCompatActivity() {
         val kawaImageView = findViewById<ImageView>(R.id.kawa_imageview)
         val kawaRadioGroup = findViewById<RadioGroup>(R.id.kawa_radiogroup)
         val cappucinoRadioButton = findViewById<RadioButton>(R.id.cappuccino_radiobutton)
+        val latteRadioButton = findViewById<RadioButton>(R.id.latte_radiobutton)
+        val espressoRadioButton = findViewById<RadioButton>(R.id.espresso_radiobutton)
 
         cappucinoRadioButton.isChecked = true
 
@@ -59,6 +64,38 @@ class MainActivity : AppCompatActivity() {
                 R.id.espresso_radiobutton -> kawaImageView.setImageResource(R.drawable.espresso)
                 R.id.cappuccino_radiobutton -> kawaImageView.setImageResource(R.drawable.capuccino)
             }
+        }
+
+        val submitButton = findViewById<Button>(R.id.submitButton)
+        submitButton.setBackgroundColor(Color.parseColor("#14DEFF"))
+
+        val cukierCheckBox = findViewById<CheckBox>(R.id.cukier_checkbox)
+        val mlekoCheckBox = findViewById<CheckBox>(R.id.mleko_checkbox)
+
+
+
+
+        submitButton.setOnClickListener {
+            val ilosc = seekBar.progress
+
+            val kawa = when {
+                latteRadioButton.isChecked -> "Latte"
+                espressoRadioButton.isChecked -> "Espresso"
+                cappucinoRadioButton.isChecked -> "Cappuccino"
+                else -> ""
+            }
+
+            val dodatki = mutableListOf<String>()
+            if (mlekoCheckBox.isChecked) dodatki.add("mleko")
+            if (cukierCheckBox.isChecked) dodatki.add("cukier")
+
+            val dodatkiText = if (dodatki.isNotEmpty()){
+                "+ " + dodatki.joinToString(" + ")
+            } else {
+                ""
+            }
+
+            Toast.makeText(this, "$ilosc - $kawa $dodatkiText", Toast.LENGTH_SHORT).show()
         }
 
     }
